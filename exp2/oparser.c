@@ -32,11 +32,11 @@ char prec[9][9] = {
 
             /*  ^ */  '>', '>','>','>','<','<','<','>','>',
 
-            /*  i */  '>', '>','>','>','>','e','e','>','>',
+            /*  i */  '>', '>','>','>','>','a','b','>','>',
 
-            /*  ( */  '<', '<','<','<','<','<','<','>','e',
+            /*  ( */  '<', '<','<','<','<','<','<','>','c',
 
-            /*  ) */  '>', '>','>','>','>','e','e','>','>',
+            /*  ) */  '>', '>','>','>','>','d','e','>','>',
 
             /*  $ */  '<', '<','<','<','<','<','<','<','>',
 
@@ -146,7 +146,14 @@ void main() {
         printf("%s\t", stack);
         dispinput(i + 1, len);
         printf("\tReduced: E->%s\n", lasthandle);
-      } else {
+      } 
+      else if (prec[getindex(stack[top])][getindex(input[i + 1])] == 'a')
+      	printf("\nmissing operator\n");
+      else if (prec[getindex(stack[top])][getindex(input[i + 1])] == 'b')
+      	printf("\nmissing paranthesis\n");
+      else if (prec[getindex(stack[top])][getindex(input[i + 1])] == 'e')
+      	printf("\nmissing operand\n");
+      else {
         break;
       }
     }
@@ -154,9 +161,13 @@ void main() {
   }
 
   if (strcmp(stack, "$E$") == 0)
-    printf("\nAccepted");
+    printf("\nAccepted\n");
+  else if (strcmp(stack, "$(E$"))
+  	printf("\nerror-missing closing paranthesis\n");
+  else if (strcmp(stack, "$)E$"))
+  	printf("\nerror-missing opening paranthesis\n");
   else
-    printf("\nNot Accepted;");
+    printf("\nerror-not accepted\n");
 
   printf("\n");
 }
