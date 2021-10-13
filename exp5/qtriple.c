@@ -67,4 +67,67 @@ void main() {
 			
 			postfix[k++]=str[i];
 			}
-		else if(str[i]=='%' || str 
+		else if(str[i]=='%' || str[i]=='+' || str[i]=='-' || str[i]=='*' || str[i]=='/') {
+			
+			if(top==-1 || stack[top]=='(') {
+				
+				push(str[i]);
+				}
+			else if(prec(str[i])>=prec(stack[top])) {
+				
+				push(str[i]);
+				}
+			else if(prec(str[i])<prec(stack[top])) {
+				
+				while(prec(str[i])<prec(stack[top])) {
+					
+					postfix[k++]=stack[top];
+					pop();
+					}
+				push(str[i]);
+				}
+			}
+		}
+	while(top!=-1) {
+		
+		postfix[k++]=stack[top];
+		pop();
+		}
+	printf("\nposftix is: %s\n",postfix);
+	printf("\nQuadruple: \n\n");
+	printf("\toperator\toperand 1\toperand 2\t result\n");
+	for(i=0;postfix[i]!='\0';i++) {
+		
+		if((postfix[i]>='a' && postfix[i]<='z') || (postfix[i]>='A' && postfix[i]<='Z')) {
+			
+			push(postfix[i]);
+			}
+		else if(postfix[i]=='%' || postfix[i]=='+' || postfix[i]=='-' || postfix[i]=='*' || postfix[i]=='/') {
+			
+			op2=stack[top];
+			pop();
+			op1=stack[top];
+			pop();
+			res=temp--;
+			push(res);
+			printf("\n\t%c\t\t%c\t\t%c\t\t%c\n",postfix[i],op1,op2,res);
+			}
+		}
+	printf("\n\ntriple: \n\n");
+	printf("operator\toperand 1\toperand 2\t\n");
+	for(i=0;postfix[i]!='\0';i++) {
+		
+		if((postfix[i]>='a' && postfix[i]<='z') || (postfix[i]>='A' && postfix[i]<='Z'))
+			push(postfix[i]);
+		else if(postfix[i]=='%' || postfix[i]=='+' || postfix[i]=='-' || postfix[i]=='*' || postfix[i]=='/') {
+			
+			op2=stack[top];
+			pop();
+			op1=stack[top];
+			pop();
+			res=temp1++;
+			push(res);
+			printf("\t%c\t\t%c\t\t%c\n",postfix[i],op1,op2);
+			}
+		}
+	}
