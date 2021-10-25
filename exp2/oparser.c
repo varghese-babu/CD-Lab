@@ -174,8 +174,26 @@ void main() {
 		printf("\nmissing operand\n");
   else if (strcmp(stack, "$(E$")==0)
   	printf("\nerror-missing closing paranthesis\n");
-  else if (strcmp(stack, "$)E$")==0)
-  	printf("\nerror-missing opening paranthesis\n");
+  else if (strcmp(stack, "$EE$")==0)
+		printf("\nmissing operator\n");
+	else if (strcmp(stack, "$EEE$")==0)
+		printf("\nmissing operator\n");
+	else if (strcmp(stack, "$E++E$")==0)
+		printf("\ninvalid operator\n");
+	else if (strcmp(stack, "$E)$")==0)
+		printf("\nerror-missing opening paranthesis\n");
+	else if (strcmp(stack, "$iE$")==0)
+		printf("\nmissing operator\n");
+	else if (strcmp(stack, "$E+$")==0)
+		printf("\nmissing operand\n");
+	else if (strcmp(stack, "$E-$")==0)
+		printf("\nmissing operand\n");
+	else if (strcmp(stack, "$E*$")==0)
+		printf("\nmissing operand\n");
+	else if (strcmp(stack, "$E/$")==0)
+		printf("\nmissing operand\n");
+	else if (strcmp(stack, "$E^$")==0)
+		printf("\nmissing operand\n");
   else
     printf("\nerror-not accepted\n");
 
