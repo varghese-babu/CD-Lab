@@ -48,8 +48,8 @@ void main() {
 	char str[20];
 	while(1)
 {
-temp=0;
-temp1=0;
+temp=90;
+temp1=65;
 	printf("enter the infix expression :\n");
 	scanf("%s",str);
 	for(i=0;str[i]!='\0';i++) {
@@ -112,9 +112,9 @@ temp1=0;
 			pop();
 			op1=stack[top];
 			pop();
-			res=++temp;
+			res=temp--;
 			push(res);
-			printf("\n\t%c\t\t%c\t\t%c\t\t%d\n",postfix[i],op1,op2,res);
+			printf("\n\t%c\t\t%c\t\t%c\t\t%c\n",postfix[i],op1,op2,res);
 			}
 		}
 	printf("\n\ntriple: \n\n");
@@ -129,7 +129,7 @@ temp1=0;
 			pop();
 			op1=stack[top];
 			pop();
-			res=++temp1;
+			res=temp1++;
 			push(res);
 			printf("\t%c\t\t%c\t\t%c\n",postfix[i],op1,op2);
 			}
