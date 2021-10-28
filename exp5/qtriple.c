@@ -38,7 +38,7 @@ int prec(char c) {
 	}
 void main() {
 	
-	int i,k=0,temp=90,temp1=48;
+	int i,k=0,temp=0,temp1=48;
 	char op1,op2,res;
 	char postfix[20];
 	for(i=0;i<20;i++)
@@ -46,6 +46,10 @@ void main() {
 	for(;i<20;i++)
 		stack[i]='\0';
 	char str[20];
+	while(1)
+{
+temp=0;
+temp1=0;
 	printf("enter the infix expression :\n");
 	scanf("%s",str);
 	for(i=0;str[i]!='\0';i++) {
@@ -108,9 +112,9 @@ void main() {
 			pop();
 			op1=stack[top];
 			pop();
-			res=temp--;
+			res=++temp;
 			push(res);
-			printf("\n\t%c\t\t%c\t\t%c\t\t%c\n",postfix[i],op1,op2,res);
+			printf("\n\t%c\t\t%c\t\t%c\t\t%d\n",postfix[i],op1,op2,res);
 			}
 		}
 	printf("\n\ntriple: \n\n");
@@ -125,9 +129,10 @@ void main() {
 			pop();
 			op1=stack[top];
 			pop();
-			res=temp1++;
+			res=++temp1;
 			push(res);
 			printf("\t%c\t\t%c\t\t%c\n",postfix[i],op1,op2);
 			}
 		}
 	}
+}
