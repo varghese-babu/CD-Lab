@@ -40,17 +40,6 @@ int main(int argc, char **argv)
 		printf("Enter the production[%d]: ",i+1);		
 		scanf("%s",production[i]);
 	}
-	/*
-	// The Input grammar
-	strcpy(production[0], "E=TR");
-	strcpy(production[1], "R=+TR");
-	strcpy(production[2], "R=#");
-	strcpy(production[3], "T=FY");
-	strcpy(production[4], "Y=*FY");
-	strcpy(production[5], "Y=#");
-	strcpy(production[6], "F=(E)");
-	strcpy(production[7], "F=i");
-	*/
 	int kay;
 	char done[count];
 	int ptr = -1;
@@ -208,6 +197,8 @@ void findfirst(char c, int q1, int q2)
 	}
 	for(j = 0; j < count; j++)
 	{
+    if(production[j][0]==production[j][2])     
+         {continue;}
 		if(production[j][0] == c)
 		{
 			if(production[j][2] == '#')
