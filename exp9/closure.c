@@ -1,10 +1,32 @@
 #include<stdio.h>
 
+char state[10][100],states[10]="0123456789";
+
+//char gone_state[10];
+//char gone_ctrl=0;
+
+void closure(char st) {
+	
+	int k=0;
+	int i=st-'0';
+	while(state[i][k]!='#') {
+		
+		k++;
+		}
+		
+	if(state[i][k-2]=='N')
+		return;
+	
+		
+	printf("%c,",state[i][k-2]);
+	closure(state[i][k-2]);
+	}
+
 
 void main() {
 	
 	int number_of_states,number_of_input_symbols;
-	char state[10][100],states[10]="0123456789";
+	
 	printf("enter number of states::");
 	scanf("%d",&number_of_states);
 	printf("\n");
@@ -27,8 +49,11 @@ void main() {
 			
 			k++;
 			}
-		if(state[i][k-2]!='N')
+		if(state[i][k-2]!='N') {
+		
 			printf("%c,",state[i][k-2]);
+			closure(state[i][k-2]);
+			}
 		
 		
 		printf(" }\n");
