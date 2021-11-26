@@ -1,0 +1,16 @@
+enter number of states::5
+
+enter number of input symbols::2
+
+enter the transitions::
+0-N-2-1-#
+1-3-N-N-#
+2-N-N-3-#
+3-N-4-N-#
+4-N-N-N-#
+epsilon closure::
+closure of 0 = { 0,1, }
+closure of 1 = { 1, }
+closure of 2 = { 2,3, }
+closure of 3 = { 3, }
+closure of 4 = { 4, }
