@@ -1,0 +1,42 @@
+hwlab@hwlab14:~/Desktop/varghese/CDLab/exp11$ lex lexical.l
+hwlab@hwlab14:~/Desktop/varghese/CDLab/exp11$ gcc lex.yy.c
+hwlab@hwlab14:~/Desktop/varghese/CDLab/exp11$ ./a.out 
+
+#include<stdio.h> is a preprocessor directive
+
+#include<stdlib.h> is a preprocessor directive
+
+	void is a keyword 
+FUNCTION 
+	main(
+	)
+
+
+ BLOCK BEGINS
+	
+	int is a keyword 
+ a IDENTIFIER,
+ b IDENTIFIER,
+ c IDENTIFIER;
+	
+FUNCTION 
+	printf(
+	 "Hellooooooo....." is a STRING
+	)
+;
+	
+ b IDENTIFIER
+	 = is an ASSIGNMENT OPERATOR
+ 10 is a NUMBER ;
+	
+ c IDENTIFIER
+	 = is an ASSIGNMENT OPERATOR
+ 20 is a NUMBER ;
+	
+ a IDENTIFIER
+	 = is an ASSIGNMENT OPERATOR
+ b IDENTIFIER+
+ c IDENTIFIER;
+BLOCK ENDS 
+
+hwlab@hwlab14:~/Desktop/varghese/CDLab/exp11$ 
